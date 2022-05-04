@@ -75,6 +75,13 @@ const TwitButton = styled.button`
   color: white;
   font-weight: bold;
   font-size: 1rem; // 버튼 폰트 사이즈...??
+
+  &:hover {
+    background-color: #1a8cd8;
+  }
+  &:active {
+    background-color: #177cc0;
+  }
 `;
 
 const Logos = styled.div`
