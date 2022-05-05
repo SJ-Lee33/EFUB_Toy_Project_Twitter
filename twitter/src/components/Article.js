@@ -23,17 +23,64 @@ const Article = () => {
           <p>...</p>
         </div>
 
-        <p style={{}}>게시글</p>
+        <p>게시글</p>
 
-        <img
-          src={img1}
+        {/* 메인 이미지 */}
+        {/* <ImageSection /> */}
+
+        <div
           style={{
-            height: "500px",
-            width: "100%",
-            borderRadius: "10px",
+            width: "505px",
+            height: "283px",
+            display: "flex",
+            flexDirection: "row",
             marginBottom: "10px",
+            flexWrap: "wrap",
           }}
-        />
+        >
+          <div
+            style={{
+              backgroundColor: "gray",
+
+              borderRadius: "10px 0 0 0",
+
+              width: "250px",
+              height: "140px",
+
+              marginRight: "1px",
+            }}
+          ></div>
+          <div
+            style={{
+              backgroundColor: "gray",
+
+              borderRadius: "0 10px 0 0",
+              width: "250px",
+              height: "140px",
+            }}
+          ></div>
+
+          <div
+            style={{
+              backgroundColor: "gray",
+
+              borderRadius: "0 0 0 10px ",
+              width: "250px",
+              height: "140px",
+              marginRight: "1px",
+            }}
+          ></div>
+
+          <div
+            style={{
+              backgroundColor: "gray",
+
+              borderRadius: "0 0 10px 0",
+              width: "250px",
+              height: "140px",
+            }}
+          ></div>
+        </div>
 
         <div
           style={{
@@ -59,3 +106,52 @@ const ArticleStyle = styled.div`
   padding: 20px;
   border-top: solid 1px rgba(0, 0, 0, 0.1);
 `;
+
+// 이미지 1개
+const ImageSection = styled.div`
+  background-color: gray;
+  border: solid 1px gray;
+  border-radius: 10px;
+
+  width: 500px;
+  height: 283px;
+
+  margin-bottom: 10px;
+`;
+
+// 이미지 2개
+
+{
+  /* 
+        <img
+          src={img1}
+          style={{
+            height: "500px",
+            width: "100%",
+            borderRadius: "10px",
+            marginBottom: "10px",
+          }}
+        /> */
+}
+
+// <div
+// style={{
+//   backgroundColor: "gray",
+
+//   borderRadius: "10px 0 0 10px ",
+
+//   width: "250px",
+//   height: "283px",
+
+//   marginRight: "1px",
+// }}
+// ></div>
+// <div
+// style={{
+//   backgroundColor: "gray",
+
+//   borderRadius: "0 10px 10px 0",
+//   width: "250px",
+//   height: "283px",
+// }}
+// ></div>
