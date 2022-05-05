@@ -1,20 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import twitter from "../assets/twitter.svg";
 
-const Menu = ({ logo }) => {
-  const Menu = logo.map((logo, index) => (
+const HomeLogo = () => {
+  return (
     <SingleMenu>
-      <MenuItemsBox key={index}>
-        <MenuLogo src={logo.img} />
-        <MenuText>{logo.text}</MenuText>
+      <MenuItemsBox>
+        <MenuLogo src={twitter} />
       </MenuItemsBox>
     </SingleMenu>
-  ));
-  return <>{Menu}</>;
+  );
 };
 
-export default Menu;
-
+export default HomeLogo;
 const SingleMenu = styled.div`
   height: 58px;
   width: 251px;
@@ -22,16 +20,20 @@ const SingleMenu = styled.div`
 
   display: flex;
   flex-direction: row;
+
+  //임시
+  /* border: solid 1px gray; */
 `;
 
 const MenuItemsBox = styled.div`
   height: 50px;
+  width: 50px;
+
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 12px;
-  padding-right: 30px;
+  padding: 20px;
 
   &:hover {
     background-color: #e7e7e8;
@@ -46,6 +48,6 @@ const MenuText = styled.p`
 `;
 
 const MenuLogo = styled.img`
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
 `;
