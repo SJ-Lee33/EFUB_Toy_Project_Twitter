@@ -3,9 +3,15 @@ import styled from "styled-components";
 
 import Article from "./Article";
 import profile from "../assets/profile.png";
+import img1 from "../assets/img1.jpg";
 import camera from "../assets/camera.svg";
+import Button from "./Button";
 
 const Home = () => {
+  let imgArray = [
+    { index: 0, src: { profile } },
+    { index: 1, src: { img1 } },
+  ];
   return (
     <TimeLine>
       <Header>
@@ -16,7 +22,15 @@ const Home = () => {
       <Input>
         <img src={profile} style={{ borderRadius: "50%", height: "48px" }} />
 
-        <div style={{ width: "100%", boxSizing: "border-box" }}>
+        <div
+          style={{
+            width: "100%",
+            boxSizing: "border-box",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <TextArea type="text" placeholder="무슨 일이 일어나고 있나요?" />
 
           <Logos>
@@ -27,12 +41,12 @@ const Home = () => {
               />
             </div>
 
-            <TwitButton>트윗하기</TwitButton>
+            <Button size="small">트윗하기</Button>
           </Logos>
         </div>
       </Input>
 
-      <Article />
+      <Article imgArray={imgArray} />
       <Article />
       <Article />
     </TimeLine>
@@ -41,60 +55,8 @@ const Home = () => {
 
 export default Home;
 
-const TextArea = styled.textarea`
-  border: none;
-  background: transparent;
-  width: 100%;
-  height: 56px;
-
-  padding-left: 15px;
-  box-sizing: border-box;
-
-  overflow: hidden;
-  resize: none;
-  outline: none;
-  font-size: 20px;
-  font-weight: bold;
-`;
-
-const TwitButton = styled.button`
-  display: flex;
-  align-items: center;
-
-  justify-content: center;
-
-  height: 36px;
-  width: 100px;
-
-  background-color: #1d9bf0;
-  border: none;
-  border-radius: 18px;
-
-  padding: 5px;
-
-  color: white;
-  font-weight: bold;
-  font-size: 1rem; // 버튼 폰트 사이즈...??
-
-  &:hover {
-    background-color: #1a8cd8;
-  }
-  &:active {
-    background-color: #177cc0;
-  }
-`;
-
-const Logos = styled.div`
-  display: flex;
-  padding-left: 15px;
-  /* height: 40px; */
-
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const TimeLine = styled.div`
-  width: 700px;
+  width: 600px;
   padding-top: 53px;
   box-sizing: border-box;
 `;
@@ -114,22 +76,53 @@ const Header = styled.div`
   height: 53px;
   width: 100%;
 
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
 
   box-sizing: border-box;
 
   padding: 0 20px;
 `;
+
+// 글씨체
 const HomeText = styled.p`
-  font-size: 20px;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 600;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 `;
 
+// 무슨일이 일어나고 있나요
 const Input = styled.div`
   display: flex;
   flex-direction: row;
 
-  background-color: beige;
+  min-height: 150px;
+
   padding: 20px;
+`;
+
+const TextArea = styled.textarea`
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 100px;
+
+  padding-left: 15px;
+  box-sizing: border-box;
+
+  overflow: hidden;
+  resize: none;
+  outline: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+`;
+
+const Logos = styled.div`
+  display: flex;
+  padding-left: 15px;
+  /* height: 40px; */
+
+  justify-content: space-between;
+  align-items: center;
 `;
