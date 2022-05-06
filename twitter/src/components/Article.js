@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import profile from "../assets/profile.png";
-import camera from "../assets/camera.svg";
-import img1 from "../assets/img1.jpg";
+import bell from "../assets/bell.svg";
 
 const Article = () => {
   return (
@@ -88,10 +87,10 @@ const Article = () => {
             justifyContent: "space-between",
           }}
         >
-          <img src={camera} style={{ height: "18px" }} />
-          <img src={camera} style={{ height: "18px" }} />
-          <img src={camera} style={{ height: "18px" }} />
-          <img src={camera} style={{ height: "18px", marginRight: "50px" }} />
+          <img src={bell} style={{ height: "18px" }} />
+          <img src={bell} style={{ height: "18px" }} />
+          <img src={bell} style={{ height: "18px", marginRight: "50px" }} />
+          <img src={bell} style={{ height: "18px" }} />
         </div>
       </section>
     </ArticleStyle>
