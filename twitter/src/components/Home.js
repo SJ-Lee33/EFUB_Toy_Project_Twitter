@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 import Article from "./Article";
 import profile from "../assets/profile.png";
-import img1 from "../assets/img1.jpg";
-import camera from "../assets/camera.svg";
 import Button from "./Button";
+
+import bell from "../assets/bell.svg";
 
 const Home = () => {
   let imgArray = [
     { index: 0, src: { profile } },
-    { index: 1, src: { img1 } },
+    { index: 1, src: { bell } },
   ];
   return (
     <TimeLine>
@@ -36,7 +36,7 @@ const Home = () => {
           <Logos>
             <div>
               <img
-                src={camera}
+                src={bell}
                 style={{ height: "20px", verticalAlign: "bottom" }}
               />
             </div>
@@ -65,6 +65,9 @@ const Header = styled.div`
   display: flex;
   flex-direction: row;
 
+  margin-right: 251px;
+  margin-left: 251px;
+
   justify-content: space-between;
   align-items: center;
 
@@ -74,12 +77,10 @@ const Header = styled.div`
   right: 0;
 
   height: 53px;
-  width: 100%;
+  width: 600px;
 
   background-color: rgba(255, 255, 255, 0.9);
-
   box-sizing: border-box;
-
   padding: 0 20px;
 `;
 

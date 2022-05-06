@@ -9,8 +9,12 @@ import MenuBar from "./components/MenuBar";
 function App() {
   return (
     <div style={{ display: "flex" }}>
-      <MenuBar />
-      <Home />
+      <div style={{ position: "fixed" }}>
+        <MenuBar />
+      </div>
+      <div style={{ marginLeft: "251px" }}>
+        <Home />
+      </div>
     </div>
   );
 }

@@ -32,12 +32,9 @@ const MenuBar = () => {
     // 스타일 수정 필요
     <div
       style={{
-        posiiton: "fixed",
-        top: "0",
-        left: "0",
         paddingTop: "53px",
         border: "solid 1px gray",
-        height: "100%",
+        height: "100vh",
       }}
     >
       <HomeLogo />
