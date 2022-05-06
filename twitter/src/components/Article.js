@@ -3,6 +3,15 @@ import styled from "styled-components";
 import profile from "../assets/profile.png";
 import bell from "../assets/bell.svg";
 
+import gif from "../assets/gif.png";
+import heart from "../assets/heart.svg";
+import picture from "../assets/picture.svg";
+import smile from "../assets/smile.png";
+import upload from "../assets/upload.svg";
+import more from "../assets/more.svg";
+import comment from "../assets/comment.svg";
+import retweet from "../assets/retweet.svg";
+
 const Article = () => {
   return (
     <ArticleStyle>
@@ -15,14 +24,29 @@ const Article = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
           }}
         >
-          <p style={{ margin: "0", fontSize: "15px" }}> 김퍼비 @kimpuby 1분</p>
-          <p>...</p>
+          <Text style={{ fontWeight: "bold" }}>김퍼비</Text>
+          <Text>@kumpuby</Text>
+          <Text>. 1분</Text>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "end",
+              flexGrow: "1",
+              alignItems: "center",
+              verticalAlign: "middle",
+            }}
+          >
+            <img src={more} style={{ height: "15px", padding: "5px" }} />
+          </div>
         </div>
 
-        <p>게시글</p>
+        <p>
+          게시글fㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ
+        </p>
 
         {/* 메인 이미지 */}
         {/* <ImageSection /> */}
@@ -87,10 +111,10 @@ const Article = () => {
             justifyContent: "space-between",
           }}
         >
-          <img src={bell} style={{ height: "18px" }} />
-          <img src={bell} style={{ height: "18px" }} />
-          <img src={bell} style={{ height: "18px", marginRight: "50px" }} />
-          <img src={bell} style={{ height: "18px" }} />
+          <Logo src={comment} />
+          <Logo src={retweet} />
+          <Logo src={heart} />
+          <Logo src={upload} style={{ height: "15px", marginRight: "50px" }} />
         </div>
       </section>
     </ArticleStyle>
@@ -106,6 +130,12 @@ const ArticleStyle = styled.div`
   border-top: solid 1px rgba(0, 0, 0, 0.1);
 `;
 
+const Text = styled.p`
+  margin: 0;
+  font-size: 15px;
+  margin-right: 5px;
+`;
+
 // 이미지 1개
 const ImageSection = styled.div`
   background-color: gray;
@@ -116,6 +146,11 @@ const ImageSection = styled.div`
   height: 283px;
 
   margin-bottom: 10px;
+`;
+
+const Logo = styled.img`
+  height: 18px;
+  opacity: 0.5;
 `;
 
 // 이미지 2개
