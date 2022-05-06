@@ -8,7 +8,7 @@ const ProfileMenu = () => {
     <SingleMenu>
       <ProfileImg src={profile} />
       <div>
-        <Text>퍼비</Text>
+        <Text style={{ fontWeight: "bold" }}>퍼비</Text>
         <Text>@efub</Text>
       </div>
 
@@ -43,9 +43,10 @@ const SingleMenu = styled.div`
 
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
 
   padding: 12px;
+
+  margin-top: 50px;
 `;
 
 //프로필 사진
@@ -56,7 +57,7 @@ const ProfileImg = styled.img`
 
 const Text = styled.p`
   margin: 0;
-  margin-left: 5px;
+  margin-left: 10px;
 `;
 
 const MenuItemsBox = styled.div`

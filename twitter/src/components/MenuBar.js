@@ -33,14 +33,32 @@ const MenuBar = () => {
     <div
       style={{
         paddingTop: "53px",
-        border: "solid 1px gray",
-        height: "100vh",
+        // border: "solid 1px gray",
+        height: "100%",
+
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <HomeLogo />
+
       <Menu logo={logo} />
-      <Button size="large" />
-      <ProfileMenu />
+      <div style={{ marginTop: "30px" }}>
+        <Button size="large" />
+      </div>
+
+      <div
+        style={{
+          marginTop: "auto",
+          display: "flex",
+          flexDirection: "column",
+
+          alignItems: "center",
+          verticalAlign: "middle",
+        }}
+      >
+        <ProfileMenu />
+      </div>
     </div>
   );
 };

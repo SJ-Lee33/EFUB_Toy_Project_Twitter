@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import Article from "./Article";
+import Input from "./Input";
+
 import profile from "../assets/profile.png";
-import Button from "./Button";
 
 import bell from "../assets/bell.svg";
 
@@ -19,32 +20,7 @@ const Home = () => {
         <HomeText>✨</HomeText>
       </Header>
 
-      <Input>
-        <img src={profile} style={{ borderRadius: "50%", height: "48px" }} />
-
-        <div
-          style={{
-            width: "100%",
-            boxSizing: "border-box",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-          }}
-        >
-          <TextArea type="text" placeholder="무슨 일이 일어나고 있나요?" />
-
-          <Logos>
-            <div>
-              <img
-                src={bell}
-                style={{ height: "20px", verticalAlign: "bottom" }}
-              />
-            </div>
-
-            <Button size="small">트윗하기</Button>
-          </Logos>
-        </div>
-      </Input>
+      <Input />
 
       <Article imgArray={imgArray} />
       <Article />
@@ -89,41 +65,5 @@ const HomeText = styled.p`
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-`;
-
-// 무슨일이 일어나고 있나요
-const Input = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  min-height: 150px;
-
-  padding: 20px;
-`;
-
-const TextArea = styled.textarea`
-  border: none;
-  background: transparent;
-  width: 100%;
-  height: 100px;
-
-  padding-left: 15px;
-  box-sizing: border-box;
-
-  overflow: hidden;
-  resize: none;
-  outline: none;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-`;
-
-const Logos = styled.div`
-  display: flex;
-  padding-left: 15px;
-  /* height: 40px; */
-
-  justify-content: space-between;
-  align-items: center;
+  color: black;
 `;

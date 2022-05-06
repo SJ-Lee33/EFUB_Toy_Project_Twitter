@@ -46,6 +46,6 @@ const MenuText = styled.p`
 `;
 
 const MenuLogo = styled.img`
-  width: 26px;
-  height: 26px;
+  width: 23px;
+  height: 23px;
 `;
