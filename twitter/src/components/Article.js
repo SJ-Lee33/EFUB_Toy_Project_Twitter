@@ -113,5 +113,6 @@ const Icon = styled.img`
   &:hover {
     border-radius: 50%;
     background-color: #e4eef7;
+    cursor: pointer;
   }
 `;
