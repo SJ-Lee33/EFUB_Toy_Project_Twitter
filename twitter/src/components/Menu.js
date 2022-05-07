@@ -1,8 +1,28 @@
 import React from "react";
 import styled from "styled-components";
+// 로고
+import bell from "../assets/bell.svg";
+import dm from "../assets/dm.svg";
+import bookmark from "../assets/bookmark.svg";
+import more from "../assets/more.svg";
+import list from "../assets/list.svg";
+import user from "../assets/user.svg";
+import home from "../assets/home.svg";
+import hashtag from "../assets/hashtag.svg";
 
-const Menu = ({ logo }) => {
-  const Menu = logo.map((logo, index) => (
+const Menu = () => {
+  const logos = [
+    { img: home, text: "홈" },
+    { img: hashtag, text: "탐색하기" },
+    { img: bell, text: "알림" },
+    { img: dm, text: "쪽지" },
+    { img: bookmark, text: "북마크" },
+    { img: list, text: "리스트" },
+    { img: user, text: "프로필" },
+    { img: more, text: "더보기" },
+  ];
+
+  const Menu = logos.map((logo, index) => (
     <SingleMenu>
       <MenuItemsBox key={index}>
         <MenuLogo src={logo.img} />
@@ -10,6 +30,7 @@ const Menu = ({ logo }) => {
       </MenuItemsBox>
     </SingleMenu>
   ));
+
   return <>{Menu}</>;
 };
 
@@ -33,9 +54,11 @@ const MenuItemsBox = styled.div`
   padding: 12px;
   padding-right: 30px;
 
+  transition: all 0.15s;
   &:hover {
     background-color: #e7e7e8;
     border-radius: 25px;
+    cursor: pointer;
   }
 `;
 const MenuText = styled.p`

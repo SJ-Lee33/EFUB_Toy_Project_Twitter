@@ -17,12 +17,8 @@ const SingleMenu = styled.div`
   height: 58px;
   width: 251px;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: row;
-
-  //임시
-  /* border: solid 1px gray; */
 `;
 
 const MenuItemsBox = styled.div`
@@ -35,8 +31,9 @@ const MenuItemsBox = styled.div`
   box-sizing: border-box;
   padding: 20px;
 
+  transition: all 0.15s;
   &:hover {
-    background-color: #e7e7e8;
+    background-color: #e9f5fe;
     border-radius: 25px;
   }
 `;

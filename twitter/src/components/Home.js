@@ -22,7 +22,7 @@ const Home = () => {
 
       <Input />
 
-      <Article imgArray={imgArray} />
+      <Article />
       <Article />
       <Article />
     </TimeLine>

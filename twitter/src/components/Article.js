@@ -1,12 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+// 컴포넌트
+import ArticleImg from "./ArticleImg";
+//로고 이미지
 import profile from "../assets/profile.png";
-import bell from "../assets/bell.svg";
-
-import gif from "../assets/gif.png";
 import heart from "../assets/heart.svg";
-import picture from "../assets/picture.svg";
-import smile from "../assets/smile.png";
 import upload from "../assets/upload.svg";
 import more from "../assets/more.svg";
 import comment from "../assets/comment.svg";
@@ -15,12 +13,9 @@ import retweet from "../assets/retweet.svg";
 const Article = () => {
   return (
     <ArticleStyle>
-      <img
-        src={profile}
-        style={{ borderRadius: "50%", height: "48px", width: "48px" }}
-      />
+      <ProfileImg src={profile} />
 
-      <section style={{ width: "100%", marginLeft: "10px" }}>
+      <article style={{ width: "100%", marginLeft: "10px" }}>
         <div
           style={{
             display: "flex",
@@ -28,7 +23,7 @@ const Article = () => {
         >
           <Text style={{ fontWeight: "bold" }}>김퍼비</Text>
           <Text>@kumpuby</Text>
-          <Text>. 1분</Text>
+          <Text>· 1분</Text>
 
           <div
             style={{
@@ -40,88 +35,49 @@ const Article = () => {
               verticalAlign: "middle",
             }}
           >
-            <img src={more} style={{ height: "15px", padding: "5px" }} />
+            <Icon src={more} style={{ height: "15px", padding: "5px" }} />
           </div>
         </div>
 
-        <p>
-          게시글fㄴㅇㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ
-        </p>
+        <Text style={{ lineHeight: "1.5em" }}>
+          되려니와, 하였으며, 이상이 이 품에 듣는다. 거친 풍부하게 장식하는
+          쓸쓸한 아니다. 인간의 속에 위하여, 그들의 같이 얼음과 이것이야말로
+          부패를 대중을 사막이다. 있는 별과 있는 무한한 이것이다. 가는 아니한
+          풍부하게 이것이야말로 굳세게 밝은 평화스러운 것이다. 석가는 창공에
+          영원히 얼마나 우리 가치를 뿐이다.
+        </Text>
 
-        {/* 메인 이미지 */}
-        {/* <ImageSection /> */}
-
-        <div
-          style={{
-            width: "505px",
-            height: "283px",
-            display: "flex",
-            flexDirection: "row",
-            marginBottom: "10px",
-            flexWrap: "wrap",
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "gray",
-
-              borderRadius: "10px 0 0 0",
-
-              width: "250px",
-              height: "140px",
-
-              marginRight: "1px",
-            }}
-          ></div>
-          <div
-            style={{
-              backgroundColor: "gray",
-
-              borderRadius: "0 10px 0 0",
-              width: "250px",
-              height: "140px",
-            }}
-          ></div>
-
-          <div
-            style={{
-              backgroundColor: "gray",
-
-              borderRadius: "0 0 0 10px ",
-              width: "250px",
-              height: "140px",
-              marginRight: "1px",
-            }}
-          ></div>
-
-          <div
-            style={{
-              backgroundColor: "gray",
-
-              borderRadius: "0 0 10px 0",
-              width: "250px",
-              height: "140px",
-            }}
-          ></div>
-        </div>
+        <ArticleImg />
 
         <div
+          className="Icons"
           style={{
             display: "flex",
             justifyContent: "space-between",
           }}
         >
-          <Logo src={comment} />
-          <Logo src={retweet} />
-          <Logo src={heart} />
-          <Logo src={upload} style={{ height: "15px", marginRight: "50px" }} />
+          <Icon src={comment} />
+          <Icon src={retweet} />
+          <Icon src={heart} />
+          <Icon src={upload} style={{ height: "15px", marginRight: "50px" }} />
         </div>
-      </section>
+      </article>
     </ArticleStyle>
   );
 };
 
 export default Article;
+
+const ProfileImg = styled.img`
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+  }
+`;
 
 const ArticleStyle = styled.div`
   display: flex;
@@ -148,44 +104,14 @@ const ImageSection = styled.div`
   margin-bottom: 10px;
 `;
 
-const Logo = styled.img`
+const Icon = styled.img`
   height: 18px;
   opacity: 0.5;
+
+  padding: 10px;
+
+  &:hover {
+    border-radius: 50%;
+    background-color: #e4eef7;
+  }
 `;
-
-// 이미지 2개
-
-{
-  /* 
-        <img
-          src={img1}
-          style={{
-            height: "500px",
-            width: "100%",
-            borderRadius: "10px",
-            marginBottom: "10px",
-          }}
-        /> */
-}
-
-// <div
-// style={{
-//   backgroundColor: "gray",
-
-//   borderRadius: "10px 0 0 10px ",
-
-//   width: "250px",
-//   height: "283px",
-
-//   marginRight: "1px",
-// }}
-// ></div>
-// <div
-// style={{
-//   backgroundColor: "gray",
-
-//   borderRadius: "0 10px 10px 0",
-//   width: "250px",
-//   height: "283px",
-// }}
-// ></div>

@@ -10,8 +10,15 @@ export default Button;
 const TwitButton = styled.button`
   display: flex;
   align-items: center;
-
   justify-content: center;
+
+  border: none;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+
+  background-color: #1d9bf0;
 
   ${(props) =>
     props.size === "large" &&
@@ -31,17 +38,9 @@ const TwitButton = styled.button`
       font-size: 1rem;
     `}
 
-  background-color: #1d9bf0;
-  border: none;
-
-  padding: 5px;
-
-  color: white;
-  font-weight: bold;
-  font-size: 18px; // 버튼 폰트 사이즈...??
-
   &:hover {
     background-color: #1a8cd8;
+    cursor: pointer;
   }
   &:active {
     background-color: #177cc0;

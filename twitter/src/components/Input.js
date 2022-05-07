@@ -1,25 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-
+// 컴포넌트
 import Button from "./Button";
-
+//로고 png
 import profile from "../assets/profile.png";
-import bell from "../assets/bell.svg";
-
 import image from "../assets/image.png";
-
 import calendar from "../assets/calendar.png";
 import gif from "../assets/gif.png";
-import heart from "../assets/heart.svg";
 import location from "../assets/location.png";
 import smile from "../assets/smile.png";
-import upload from "../assets/upload.svg";
 import stats from "../assets/stats.png";
 
 const Input = () => {
   return (
     <InputBox>
-      <img src={profile} style={{ borderRadius: "50%", height: "48px" }} />
+      <ProfileImg src={profile} />
 
       <div
         style={{
@@ -51,12 +46,6 @@ const Input = () => {
 
 export default Input;
 
-const Logo = styled.img`
-  height: 20px;
-  vertical-align: bottom;
-  margin-left: 20px;
-`;
-
 const InputBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -64,6 +53,15 @@ const InputBox = styled.div`
   min-height: 150px;
 
   padding: 20px;
+`;
+
+const ProfileImg = styled.img`
+  height: 48px;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -82,13 +80,28 @@ const TextArea = styled.textarea`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
   font-weight: bold;
+
+  color: gray;
 `;
 
 const Logos = styled.div`
   display: flex;
   padding-left: 15px;
-  /* height: 40px; */
 
   justify-content: space-between;
   align-items: center;
+`;
+
+const Logo = styled.img`
+  height: 20px;
+  vertical-align: bottom;
+  margin-left: 7Z Qpx;
+  padding: 8px;
+
+  transition: all 0.15s;
+  &:hover {
+    background-color: #e7e7e8;
+
+    border-radius: 18px;
+  }
 `;
