@@ -4,6 +4,7 @@ import axios from "axios";
 
 // 컴포넌트
 import ArticleImg from "./ArticleImg";
+import Modal from "./Modal";
 //로고 이미지
 import profile from "../assets/profile.png";
 import heart from "../assets/heart.svg";
@@ -13,6 +14,12 @@ import comment from "../assets/comment.svg";
 import retweet from "../assets/retweet.svg";
 
 const Article = ({ article }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <ArticleStyle>
       <ProfileImg src={profile} />
@@ -38,13 +45,13 @@ const Article = ({ article }) => {
             }}
           >
             {/* 삭제 버튼 필요*/}
+
+            {showModal && <Modal id={article.id} />}
+
             <Icon
               src={more}
               style={{ height: "15px", padding: "5px" }}
-              onClick={() => {
-                console.log("삭제", article.id);
-                axios.delete(`http://127.0.0.1:8000/review/${article.id}`);
-              }}
+              onClick={openModal}
             />
           </div>
         </div>

@@ -30,8 +30,6 @@ const Home = () => {
     },
   ]);
 
-  console.log(articles);
-
   // 새로고침 : get 요청 자동 실행
 
   // useEffect(() => {
