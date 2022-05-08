@@ -35,14 +35,15 @@ const TimeLine = styled.div`
   width: 600px;
   padding-top: 53px;
   box-sizing: border-box;
+  border: solid 1px rgba(127, 127, 127, 0.1);
 `;
 
 const Header = styled.div`
   display: flex;
   flex-direction: row;
 
-  margin-right: 251px;
-  margin-left: 251px;
+  margin-right: auto;
+  margin-left: auto;
 
   justify-content: space-between;
   align-items: center;

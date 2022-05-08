@@ -23,8 +23,8 @@ const TwitButton = styled.button`
   ${(props) =>
     props.size === "large" &&
     css`
-      height: 50px;
-      width: 225px;
+      height: 45px;
+      width: 215px;
       border-radius: 25px;
     `}
 

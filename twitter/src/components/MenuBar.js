@@ -7,13 +7,11 @@ import HomeLogo from "./HomeLogo";
 
 const MenuBar = () => {
   return (
-    // 스타일 수정 필요
     <div
       style={{
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        paddingTop: "53px",
       }}
     >
       <HomeLogo />
