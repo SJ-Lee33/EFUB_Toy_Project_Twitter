@@ -1,18 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import Article from "./Article";
 import Input from "./Input";
 
-import profile from "../assets/profile.png";
-
-import bell from "../assets/bell.svg";
-
 const Home = () => {
-  let imgArray = [
-    { index: 0, src: { profile } },
-    { index: 1, src: { bell } },
-  ];
+  const [articles, setArticles] = useState([
+    {
+      id: 1,
+      content: "첫번째 트윗",
+      nickname: "test1",
+      twitter_id: "user1",
+      created_at: "2022-04-13 12:30:03",
+    },
+    {
+      id: 2,
+      content: "두번째 트윗",
+      nickname: "test2",
+      twitter_id: "user2",
+      created_at: "2022-04-13 12:30:03",
+    },
+    {
+      id: 3,
+      content: "세번째 트윗",
+      nickname: "test3",
+      twitter_id: "user3",
+      created_at: "2022-04-13 12:30:03",
+    },
+  ]);
+
+  console.log(articles);
+
+  // 새로고침 : get 요청 자동 실행
+
+  // useEffect(() => {
+  //   axios
+  //     .get("http://127.0.0.1:8000/get/tweets")
+  //     .then((response) => {
+  //       setArticles([...response.data]);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // });
+
   return (
     <TimeLine>
       <Header>
@@ -22,9 +54,9 @@ const Home = () => {
 
       <Input />
 
-      <Article />
-      <Article />
-      <Article />
+      {articles.map((article) => (
+        <Article article={article} key={article.id} />
+      ))}
     </TimeLine>
   );
 };
