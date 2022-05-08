@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import axios from "axios";
+
 // 컴포넌트
 import ArticleImg from "./ArticleImg";
 //로고 이미지
@@ -10,7 +12,7 @@ import more from "../assets/more.svg";
 import comment from "../assets/comment.svg";
 import retweet from "../assets/retweet.svg";
 
-const Article = () => {
+const Article = ({ article }) => {
   return (
     <ArticleStyle>
       <ProfileImg src={profile} />
@@ -21,9 +23,9 @@ const Article = () => {
             display: "flex",
           }}
         >
-          <Text style={{ fontWeight: "bold" }}>김퍼비</Text>
-          <Text>@kumpuby</Text>
-          <Text>· 1분</Text>
+          <Text style={{ fontWeight: "bold" }}>{article.nickname}</Text>
+          <Text>@{article.twitter_id}</Text>
+          <Text>· {article.created_at}</Text>
 
           <div
             style={{
@@ -35,18 +37,21 @@ const Article = () => {
               verticalAlign: "middle",
             }}
           >
-            <Icon src={more} style={{ height: "15px", padding: "5px" }} />
+            {/* 삭제 버튼 필요*/}
+            <Icon
+              src={more}
+              style={{ height: "15px", padding: "5px" }}
+              onClick={() => {
+                console.log("삭제", article.id);
+                axios.delete(`http://127.0.0.1:8000/review/${article.id}`);
+              }}
+            />
           </div>
         </div>
 
-        <Text style={{ lineHeight: "1.5em" }}>
-          되려니와, 하였으며, 이상이 이 품에 듣는다. 거친 풍부하게 장식하는
-          쓸쓸한 아니다. 인간의 속에 위하여, 그들의 같이 얼음과 이것이야말로
-          부패를 대중을 사막이다. 있는 별과 있는 무한한 이것이다. 가는 아니한
-          풍부하게 이것이야말로 굳세게 밝은 평화스러운 것이다. 석가는 창공에
-          영원히 얼마나 우리 가치를 뿐이다.
-        </Text>
+        <Text style={{ lineHeight: "1.5em" }}>{article.content}</Text>
 
+        {/* 이미지 업로드 가능한가..? */}
         <ArticleImg />
 
         <div
