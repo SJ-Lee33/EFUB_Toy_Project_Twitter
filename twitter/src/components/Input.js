@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 // 컴포넌트
 import Button from "./Button";
 //로고 png
@@ -12,6 +13,25 @@ import smile from "../assets/smile.png";
 import stats from "../assets/stats.png";
 
 const Input = () => {
+  const [text, setText] = useState("");
+
+  // 게시글 작성
+  const onSubmit = (e) => {
+    axios
+      .post("http://127.0.0.1:8000/api/tweets", {
+        user_id: 1,
+        content: text,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    setText("");
+  };
+
   return (
     <InputBox>
       <ProfileImg src={profile} />
@@ -25,20 +45,29 @@ const Input = () => {
           justifyContent: "space-between",
         }}
       >
-        <TextArea type="text" placeholder="무슨 일이 일어나고 있나요?" />
+        <form onSubmit={onSubmit}>
+          <TextArea
+            type="text"
+            placeholder="무슨 일이 일어나고 있나요?"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
 
-        <Logos>
-          <div>
-            <Logo src={image} />
-            <Logo src={gif} />
-            <Logo src={smile} />
-            <Logo src={calendar} />
-            <Logo src={stats} style={{ opacity: "0.7" }} />
-            <Logo src={location} style={{ opacity: "0.5" }} />
-          </div>
+          <Logos>
+            <div>
+              <Logo src={image} />
+              <Logo src={gif} />
+              <Logo src={smile} />
+              <Logo src={calendar} />
+              <Logo src={stats} style={{ opacity: "0.7" }} />
+              <Logo src={location} style={{ opacity: "0.5" }} />
+            </div>
 
-          <Button size="small">트윗하기</Button>
-        </Logos>
+            <Button size="small" type="submit">
+              트윗하기
+            </Button>
+          </Logos>
+        </form>
       </div>
     </InputBox>
   );
