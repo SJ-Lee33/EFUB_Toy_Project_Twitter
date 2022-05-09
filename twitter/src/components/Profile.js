@@ -43,6 +43,13 @@ export default function Profile() {
           </FollowInfo>
         </div>
       </ProfileArea>
+
+      <ProfMenu>
+        <ProfMenuItemFocus>트윗</ProfMenuItemFocus>
+        <ProfMenuItem>트윗 및 답글</ProfMenuItem>
+        <ProfMenuItem>미디어</ProfMenuItem>
+        <ProfMenuItem>마음에 들어요</ProfMenuItem>
+      </ProfMenu>
     </ProfTimeLine>
   );
 }
@@ -124,4 +131,37 @@ const FollowInfo = styled.div`
 
 const TextG = styled.p`
   color: gray;
+`;
+
+const ProfMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  border-top: 0.5px solid lightgray;
+  border-bottom: 0.5px solid lightgray;
+  font-weight: bold;
+`;
+
+const ProfMenuItem = styled.div`
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  color: gray;
+  &:hover {
+    color: black;
+  }
+`;
+
+const ProfMenuItemFocus = styled.div`
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  color: black;
+  border-bottom: 3px solid #499ee7;
 `;
