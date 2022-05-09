@@ -1,11 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import { FiMoreHorizontal } from "react-icons/fi";
 
 function Trend_({ trends }) {
   return (
     <TrendItem>
-      <TrendItemCate>{trends.category}</TrendItemCate>
-      <TrendItemKeyword>{trends.keyword}</TrendItemKeyword>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <TrendItemCate>{trends.category}</TrendItemCate>
+        <TrendItemKeyword>{trends.keyword}</TrendItemKeyword>
+      </div>
+      <FiMoreHorizontal style={{ color: "#8d989f", marginRight: "30px" }} />
     </TrendItem>
   );
 }
@@ -40,9 +49,11 @@ const TrendArea = styled.div`
   height: 100%;
   margin: 15px 0;
   padding: 15px 0;
+  background: #f0f3f4;
+
   display: flex;
   flex-direction: column;
-  background: #f0f3f4;
+  justify-content: center;
 `;
 
 const TrendTitle = styled.div`
@@ -53,6 +64,9 @@ const TrendTitle = styled.div`
 `;
 
 const TrendItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   margin: 8px 15px;
