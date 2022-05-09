@@ -18,9 +18,3 @@ function App() {
 }
 
 export default App;
-
-// const RightBar = styled.div`
-//   width: 251px;
-
-//   background-color: rgba(127, 127, 127, 0.1);
-// `;
