@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import headerimg from "../assets/ewha.png";
 import profile from "../assets/profile.png";
 import { FiChevronLeft } from "react-icons/fi";
 import { BsCalendar3 } from "react-icons/bs";
+import Article from "../components/Article";
+import RecommendFollowBox from "./RecommendFollowBox";
 
 export default function Profile() {
+  const [articles, setArticles] = useState([
+    {
+      id: 1,
+      content: "첫번째 트윗",
+      nickname: "test1",
+      twitter_id: "user1",
+      created_at: "2022-04-13 12:30:03",
+    },
+    {
+      id: 2,
+      content: "두번째 트윗",
+      nickname: "test2",
+      twitter_id: "user2",
+      created_at: "2022-04-13 12:30:03",
+    },
+    {
+      id: 3,
+      content: "세번째 트윗",
+      nickname: "test3",
+      twitter_id: "user3",
+      created_at: "2022-04-13 12:30:03",
+    },
+  ]);
+
   return (
     <ProfTimeLine>
       <Header>
@@ -50,6 +76,13 @@ export default function Profile() {
         <ProfMenuItem>미디어</ProfMenuItem>
         <ProfMenuItem>마음에 들어요</ProfMenuItem>
       </ProfMenu>
+
+      <RecommendFollowArea>
+        <RecommendFollowBox />
+      </RecommendFollowArea>
+      {articles.map((article) => (
+        <Article article={article} key={article.id} />
+      ))}
     </ProfTimeLine>
   );
 }
@@ -164,4 +197,15 @@ const ProfMenuItemFocus = styled.div`
   padding: 0 15px;
   color: black;
   border-bottom: 3px solid #499ee7;
+`;
+
+const RecommendFollowArea = styled.div`
+  width: 100%;
+  height: auto;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+
+  border-top: 0.5px solid lightgray;
+  border-bottom: 0.5px solid lightgray;
 `;
