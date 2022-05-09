@@ -14,7 +14,6 @@ export default function Search() {
 }
 
 const SearchArea = styled.div`
-  margin: 10px 0px 10px 20px;
   background: #f0f3f4;
   border-radius: 30px;
   height: 40px;
