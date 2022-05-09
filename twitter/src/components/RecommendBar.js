@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Search from "./Search";
 import Trend from "./Trend";
+import RecommendFollow from "./RecommendFollow";
 
 export default function RecommendBar() {
   return (
@@ -17,6 +18,8 @@ export default function RecommendBar() {
       <Search />
 
       <Trend />
+
+      <RecommendFollow />
     </div>
   );
 }
