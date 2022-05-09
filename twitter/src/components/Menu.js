@@ -1,37 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-// 로고
-import bell from "../assets/bell.svg";
-import dm from "../assets/dm.svg";
-import bookmark from "../assets/bookmark.svg";
-import more from "../assets/more.svg";
-import list from "../assets/list.svg";
-import user from "../assets/user.svg";
-import home from "../assets/home.svg";
-import hashtag from "../assets/hashtag.svg";
 
-const Menu = () => {
-  const logos = [
-    { img: home, text: "홈" },
-    { img: hashtag, text: "탐색하기" },
-    { img: bell, text: "알림" },
-    { img: dm, text: "쪽지" },
-    { img: bookmark, text: "북마크" },
-    { img: list, text: "리스트" },
-    { img: user, text: "프로필" },
-    { img: more, text: "더보기" },
-  ];
-
-  const Menu = logos.map((logo, index) => (
+const Menu = ({ menu }) => {
+  return (
     <SingleMenu>
-      <MenuItemsBox key={index}>
-        <MenuLogo src={logo.img} />
-        <MenuText>{logo.text}</MenuText>
+      <MenuItemsBox key={menu.text}>
+        <MenuLogo src={menu.img} />
+        <MenuText>{menu.text}</MenuText>
       </MenuItemsBox>
     </SingleMenu>
-  ));
-
-  return <>{Menu}</>;
+  );
 };
 
 export default Menu;
