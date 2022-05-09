@@ -1,40 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 
+function Trend_({ trends }) {
+  return (
+    <TrendItem>
+      <TrendItemCate>{trends.category}</TrendItemCate>
+      <TrendItemKeyword>{trends.keyword}</TrendItemKeyword>
+    </TrendItem>
+  );
+}
+
 export default function Trend() {
+  const trends = [
+    {
+      id: 1,
+      category: "대한민국에서 트렌드 중",
+      keyword: "윤하언니",
+    },
+    {
+      id: 2,
+      category: "뮤직 · 실시간 트렌드",
+      keyword: "엔시티",
+    },
+  ];
+
   return (
     <TrendArea>
       <TrendTitle>나를 위한 트렌드</TrendTitle>
 
-      <TrendItem>
-        <TrendItemCate>대한민국에서 트렌드 중</TrendItemCate>
-        <TrendItemKeyword>윤하언니</TrendItemKeyword>
-      </TrendItem>
-
-      <TrendItem>
-        <TrendItemCate>대한민국에서 트렌드 중</TrendItemCate>
-        <TrendItemKeyword>윤하언니</TrendItemKeyword>
-      </TrendItem>
-
-      <TrendItem>
-        <TrendItemCate>대한민국에서 트렌드 중</TrendItemCate>
-        <TrendItemKeyword>윤하언니</TrendItemKeyword>
-      </TrendItem>
-
-      <TrendItem>
-        <TrendItemCate>대한민국에서 트렌드 중</TrendItemCate>
-        <TrendItemKeyword>윤하언니</TrendItemKeyword>
-      </TrendItem>
-
-      <TrendItem>
-        <TrendItemCate>대한민국에서 트렌드 중</TrendItemCate>
-        <TrendItemKeyword>윤하언니</TrendItemKeyword>
-      </TrendItem>
-
-      <TrendItem>
-        <TrendItemCate>대한민국에서 트렌드 중</TrendItemCate>
-        <TrendItemKeyword>윤하언니</TrendItemKeyword>
-      </TrendItem>
+      {trends.map((trends) => (
+        <Trend_ trends={trends} key={trends.id} />
+      ))}
     </TrendArea>
   );
 }
