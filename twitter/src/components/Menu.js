@@ -44,6 +44,7 @@ const MenuText = styled.p`
   font-family: Arial, Helvetica, sans-serif;
 
   margin-left: 20px;
+  color: black;
 `;
 
 const MenuLogo = styled.img`
