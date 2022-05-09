@@ -38,14 +38,16 @@ const MenuBar = () => {
     >
       <HomeLogo />
 
-      <Menu menu={menu[0]} />
+      <StyledLink to="/">
+        <Menu menu={menu[0]} />
+      </StyledLink>
       <Menu menu={menu[1]} />
       <Menu menu={menu[2]} />
       <Menu menu={menu[3]} />
       <Menu menu={menu[4]} />
       <Menu menu={menu[5]} />
       <StyledLink to="profile">
-        <Menu menu={menu[6]} className="프로필" />
+        <Menu menu={menu[6]} />
       </StyledLink>
       <Menu menu={menu[7]} />
 
