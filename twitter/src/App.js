@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 
 import Home from "./components/Home";
 import MenuBar from "./components/MenuBar";
+import RecommendBar from "./components/RecommendBar";
 
 function App() {
   return (
@@ -11,15 +12,15 @@ function App() {
 
       <Home />
 
-      <RightBar>오른쪽</RightBar>
+      <RecommendBar />
     </div>
   );
 }
 
 export default App;
 
-const RightBar = styled.div`
-  width: 251px;
+// const RightBar = styled.div`
+//   width: 251px;
 
-  background-color: rgba(127, 127, 127, 0.1);
-`;
+//   background-color: rgba(127, 127, 127, 0.1);
+// `;
