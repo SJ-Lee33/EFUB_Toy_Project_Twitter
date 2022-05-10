@@ -14,7 +14,7 @@ export default function RecommendFollow() {
 const RecArea = styled.div`
   width: 100%;
   height: 100%;
-  margin: 15px 0;
+  margin-top: 15px;
   padding: 15px 0;
   display: flex;
   flex-direction: column;
