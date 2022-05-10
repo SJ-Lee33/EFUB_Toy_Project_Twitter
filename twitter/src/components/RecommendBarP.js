@@ -4,7 +4,7 @@ import Search from "./Search";
 import Trend from "./Trend";
 import RecommendFollow from "./RecommendFollow";
 
-export default function RecommendBar() {
+export default function RecommendBarP() {
   return (
     <div
       style={{
@@ -17,9 +17,9 @@ export default function RecommendBar() {
     >
       <Search />
 
-      <Trend />
-
       <RecommendFollow />
+
+      <Trend />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Menu from "./Menu";
 import Button from "./Button";
 import ProfileMenu from "./ProfileMenu";
 import HomeLogo from "./HomeLogo";
+import { Link } from "react-router-dom";
 
 // 로고
 import bell from "../assets/bell.svg";
@@ -37,13 +38,17 @@ const MenuBar = () => {
     >
       <HomeLogo />
 
-      <Menu menu={menu[0]} />
+      <StyledLink to="/">
+        <Menu menu={menu[0]} />
+      </StyledLink>
       <Menu menu={menu[1]} />
       <Menu menu={menu[2]} />
       <Menu menu={menu[3]} />
       <Menu menu={menu[4]} />
       <Menu menu={menu[5]} />
-      <Menu menu={menu[6]} className="프로필" />
+      <StyledLink to="profile">
+        <Menu menu={menu[6]} />
+      </StyledLink>
       <Menu menu={menu[7]} />
 
       <div style={{ marginTop: "30px" }}>
@@ -66,3 +71,14 @@ const MenuBar = () => {
 };
 
 export default MenuBar;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;

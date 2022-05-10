@@ -1,20 +1,17 @@
 import React from "react";
-import styled, { css } from "styled-components";
 
-import Home from "./components/Home";
-import MenuBar from "./components/MenuBar";
-import RecommendBar from "./components/RecommendBar";
+import HomePage from "./pages/HomePage";
+import ProfilePage from "./pages/ProfilePage";
 
-function App() {
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+export default function App() {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <MenuBar />
-
-      <Home />
-
-      <RecommendBar />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
