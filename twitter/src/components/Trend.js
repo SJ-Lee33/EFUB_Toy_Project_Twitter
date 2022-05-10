@@ -47,7 +47,7 @@ export default function Trend() {
 const TrendArea = styled.div`
   width: 100%;
   height: 100%;
-  margin: 15px 0;
+  margin-top: 15px;
   padding: 15px 0;
   background: #f0f3f4;
 

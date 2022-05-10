@@ -16,7 +16,7 @@ export default function RecommendFollowBox() {
 
 const RecTitle = styled.div`
   width: 100%;
-  margin: 0px 0 0 15px;
+  margin-left: 15px;
   font-weight: bold;
   font-size: 20px;
 `;
