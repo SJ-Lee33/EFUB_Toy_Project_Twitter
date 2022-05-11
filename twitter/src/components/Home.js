@@ -17,9 +17,12 @@ const Home = ({ articles, loading }) => {
 
       {loading ? <Spinner /> : ""}
 
-      {articles.map((article) => (
-        <Article article={article} />
-      ))}
+      {articles
+        .slice(0)
+        .reverse()
+        .map((article) => (
+          <Article article={article} />
+        ))}
     </TimeLine>
   );
 };
