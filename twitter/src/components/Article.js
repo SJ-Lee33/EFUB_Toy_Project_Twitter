@@ -31,7 +31,7 @@ const Article = ({ article }) => {
           }}
         >
           <Text style={{ fontWeight: "bold" }}>{article.nickname}</Text>
-          <Text>@{article.twitterId}</Text>
+          <Text>{article.twitterId}</Text>
           <Text>· {article.createdDate}</Text>
 
           <div
@@ -44,8 +44,6 @@ const Article = ({ article }) => {
               verticalAlign: "middle",
             }}
           >
-            {/* 삭제 버튼 필요*/}
-
             {showModal && <Modal id={article.id} />}
 
             <Icon
