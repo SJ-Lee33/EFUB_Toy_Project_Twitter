@@ -18,8 +18,8 @@ const Input = () => {
   // 게시글 작성
   const onSubmit = (e) => {
     axios
-      .post("http://127.0.0.1:8000/api/tweets", {
-        user_id: 1,
+      .post("https://twitter-toy.herokuapp.com/tweets", {
+        userId: 1,
         content: text,
       })
       .then(function (response) {
