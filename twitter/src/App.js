@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
   const [articles, setArticles] = useState([]);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,6 +24,8 @@ export default function App() {
       });
   }, []);
 
+  console.log(articles);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -30,7 +33,7 @@ export default function App() {
           path="/"
           element={<HomePage articles={articles} loading={loading} />}
         />
-        <Route path="profile/*" element={<ProfilePage />} />
+        <Route path="profile/" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );
