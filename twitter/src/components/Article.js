@@ -31,8 +31,8 @@ const Article = ({ article }) => {
           }}
         >
           <Text style={{ fontWeight: "bold" }}>{article.nickname}</Text>
-          <Text>@{article.twitter_id}</Text>
-          <Text>· {article.created_at}</Text>
+          <Text>@{article.twitterId}</Text>
+          <Text>· {article.createdDate}</Text>
 
           <div
             style={{
