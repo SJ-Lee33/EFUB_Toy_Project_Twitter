@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 // 컴포넌트
 import Button from "./Button";
 //로고 png
@@ -18,8 +20,8 @@ const Input = () => {
   // 게시글 작성
   const onSubmit = (e) => {
     axios
-      .post("http://127.0.0.1:8000/api/tweets", {
-        user_id: 1,
+      .post("https://twitter-toy.herokuapp.com/tweets", {
+        userId: 1,
         content: text,
       })
       .then(function (response) {
@@ -34,8 +36,9 @@ const Input = () => {
 
   return (
     <InputBox>
-      <ProfileImg src={profile} />
-
+      <StyledLink to="profile">
+        <ProfileImg src={profile} />
+      </StyledLink>
       <div
         style={{
           width: "100%",
@@ -132,5 +135,16 @@ const Logo = styled.img`
     background-color: #e7e7e8;
 
     border-radius: 18px;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
   }
 `;

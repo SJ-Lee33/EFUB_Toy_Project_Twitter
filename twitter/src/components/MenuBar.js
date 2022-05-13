@@ -36,8 +36,9 @@ const MenuBar = () => {
         height: "100%",
       }}
     >
-      <HomeLogo />
-
+      <StyledLink to="/">
+        <HomeLogo />
+      </StyledLink>
       <StyledLink to="/">
         <Menu menu={menu[0]} />
       </StyledLink>
@@ -46,7 +47,7 @@ const MenuBar = () => {
       <Menu menu={menu[3]} />
       <Menu menu={menu[4]} />
       <Menu menu={menu[5]} />
-      <StyledLink to="profile">
+      <StyledLink to="/profile">
         <Menu menu={menu[6]} />
       </StyledLink>
       <Menu menu={menu[7]} />
@@ -64,7 +65,9 @@ const MenuBar = () => {
           marginTop: "auto",
         }}
       >
-        <ProfileMenu />
+        <StyledLink to="/profile">
+          <ProfileMenu />
+        </StyledLink>
       </div>
     </div>
   );

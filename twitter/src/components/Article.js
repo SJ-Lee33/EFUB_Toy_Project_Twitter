@@ -13,12 +13,42 @@ import more from "../assets/more.svg";
 import comment from "../assets/comment.svg";
 import retweet from "../assets/retweet.svg";
 
+function timeForToday(value) {
+  const today = new Date(); // 현재 시간
+  const timeValue = new Date(value); // 트윗 날짜
+
+  const betweenTime = Math.floor(
+    (today.getTime() - timeValue.getTime()) / 1000 / 60
+  );
+
+  if (betweenTime < 1) return "지금";
+
+  if (betweenTime < 60) {
+    return `${betweenTime}분`;
+  }
+
+  const betweenTimeHour = Math.floor(betweenTime / 60);
+
+  if (betweenTimeHour < 24) {
+    return `${betweenTimeHour}시간`;
+  }
+
+  const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
+  if (betweenTimeDay < 365) {
+    return `${betweenTimeDay}일`;
+  }
+
+  return `${Math.floor(betweenTimeDay / 365)}년`;
+}
+
 const Article = ({ article }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
     setShowModal(!showModal);
   };
+
+  const time = timeForToday(article.createdDate);
 
   return (
     <ArticleStyle>
@@ -31,8 +61,9 @@ const Article = ({ article }) => {
           }}
         >
           <Text style={{ fontWeight: "bold" }}>{article.nickname}</Text>
-          <Text>@{article.twitter_id}</Text>
-          <Text>· {article.created_at}</Text>
+          <Text>{article.twitterId}</Text>
+          <Text>· {article.createdDate}</Text>
+          <Text>{time}</Text>
 
           <div
             style={{
@@ -44,8 +75,6 @@ const Article = ({ article }) => {
               verticalAlign: "middle",
             }}
           >
-            {/* 삭제 버튼 필요*/}
-
             {showModal && <Modal id={article.id} />}
 
             <Icon
@@ -58,7 +87,6 @@ const Article = ({ article }) => {
 
         <Text style={{ lineHeight: "1.5em" }}>{article.content}</Text>
 
-        {/* 이미지 업로드 가능한가..? */}
         <ArticleImg />
 
         <div
