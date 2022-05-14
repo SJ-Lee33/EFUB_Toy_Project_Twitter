@@ -25,8 +25,8 @@ export default function ProfileMenu({ user }) {
         <img
           src={more}
           style={{
-            height: "18px",
-            width: "18px",
+            height: "15px",
+            width: "15px",
           }}
         />
       </div>
@@ -35,7 +35,7 @@ export default function ProfileMenu({ user }) {
 }
 const ProfileMenuBox = styled.div`
   height: 64px;
-  width: 251px;
+  width: auto;
   box-sizing: border-box;
 
   display: flex;
@@ -44,6 +44,7 @@ const ProfileMenuBox = styled.div`
   padding: 12px;
 
   margin-top: 50px;
+  margin-right: 20px;
 
   transition: all 0.15s;
   &:hover {
