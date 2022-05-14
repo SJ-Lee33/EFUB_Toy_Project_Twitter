@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
+import API from "./components/API";
 
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
@@ -13,8 +13,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("https://twitter-toy.herokuapp.com/tweets")
+    API.get("/tweets")
       .then((response) => {
         setArticles([...response.data]);
         setLoading(false);
@@ -23,8 +22,6 @@ export default function App() {
         console.log(error);
       });
   }, []);
-
-  console.log(articles);
 
   return (
     <BrowserRouter>
