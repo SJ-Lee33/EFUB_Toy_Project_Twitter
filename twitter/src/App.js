@@ -12,15 +12,19 @@ export default function App() {
 
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    API.get("/tweets")
+  const getTweets = async () => {
+    const response = await API.get("/tweets")
       .then((response) => {
         setArticles([...response.data]);
         setLoading(false);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.log(error.message);
       });
+  };
+
+  useEffect(() => {
+    getTweets();
   }, []);
 
   return (
