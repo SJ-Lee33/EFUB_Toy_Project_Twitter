@@ -13,7 +13,7 @@ export default function Profile({ articles }) {
     .reverse()
     .filter((article) => article.userId == 1)
     .map((article) => {
-      return <Article article={article} />;
+      return <Article key={article.tweetId} article={article} />;
     });
 
   return (

@@ -21,7 +21,7 @@ const Home = ({ articles, loading }) => {
         .slice(0)
         .reverse()
         .map((article) => (
-          <Article article={article} />
+          <Article key={article.tweetId} article={article} />
         ))}
     </TimeLine>
   );
