@@ -30,7 +30,7 @@ export default function App() {
           path="/"
           element={<HomePage articles={articles} loading={loading} />}
         />
-        <Route path="profile/" element={<ProfilePage />} />
+        <Route path="profile/" element={<ProfilePage articles={articles} />} />
       </Routes>
     </BrowserRouter>
   );

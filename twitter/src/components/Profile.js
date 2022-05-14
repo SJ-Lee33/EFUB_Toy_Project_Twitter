@@ -7,30 +7,14 @@ import { BsCalendar3 } from "react-icons/bs";
 import Article from "../components/Article";
 import RecommendFollowBox from "./RecommendFollowBox";
 
-export default function Profile() {
-  const [articles, setArticles] = useState([
-    {
-      id: 1,
-      content: "첫번째 트윗",
-      nickname: "test1",
-      twitter_id: "user1",
-      created_at: "2022-04-13 12:30:03",
-    },
-    {
-      id: 2,
-      content: "두번째 트윗",
-      nickname: "test2",
-      twitter_id: "user2",
-      created_at: "2022-04-13 12:30:03",
-    },
-    {
-      id: 3,
-      content: "세번째 트윗",
-      nickname: "test3",
-      twitter_id: "user3",
-      created_at: "2022-04-13 12:30:03",
-    },
-  ]);
+export default function Profile({ articles }) {
+  const ownArticle = articles
+    .slice(0)
+    .reverse()
+    .filter((article) => article.userId == 1)
+    .map((article) => {
+      return <Article article={article} />;
+    });
 
   return (
     <ProfTimeLine>
@@ -41,7 +25,6 @@ export default function Profile() {
           <div style={{ fontSize: "0.2rem", fontWeight: "400" }}>2트윗</div>
         </HeaderText>
       </Header>
-
       <ProfileArea>
         <HeaderImg src={headerimg} />
 
@@ -69,20 +52,17 @@ export default function Profile() {
           </FollowInfo>
         </div>
       </ProfileArea>
-
       <ProfMenu>
         <ProfMenuItemFocus>트윗</ProfMenuItemFocus>
         <ProfMenuItem>트윗 및 답글</ProfMenuItem>
         <ProfMenuItem>미디어</ProfMenuItem>
         <ProfMenuItem>마음에 들어요</ProfMenuItem>
       </ProfMenu>
-
       <RecommendFollowArea>
         <RecommendFollowBox />
       </RecommendFollowArea>
-      {articles.map((article) => (
-        <Article article={article} key={article.id} />
-      ))}
+
+      {ownArticle}
     </ProfTimeLine>
   );
 }
