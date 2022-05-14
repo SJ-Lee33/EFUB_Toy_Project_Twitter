@@ -4,7 +4,7 @@ import axios from "axios";
 
 // 컴포넌트
 import ArticleImg from "./ArticleImg";
-import Modal from "./Modal";
+import Modal from "./TweetModal";
 //로고 이미지
 import profile from "../assets/profile.png";
 import heart from "../assets/heart.svg";
