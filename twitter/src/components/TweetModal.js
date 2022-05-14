@@ -4,8 +4,7 @@ import styled from "styled-components";
 
 import { FiTrash2, FiFlag } from "react-icons/fi";
 
-const TweetModal = ({ id }) => {
-  console.log(id);
+const TweetModal = ({ id, user_id }) => {
   return (
     <ModalArea>
       <Button>
@@ -15,28 +14,30 @@ const TweetModal = ({ id }) => {
         <Text>신고하기</Text>
       </Button>
 
-      <Button
-        style={{ color: "#f74549" }}
-        onClick={() => {
-          API.delete(`/tweets/${id}`, {
-            data: {
-              userId: 1,
-            },
-          })
-            .then((response) => {
-              console.log(response);
-              window.location.reload();
+      {user_id == 1 && (
+        <Button
+          style={{ color: "#f74549" }}
+          onClick={() => {
+            API.delete(`/tweets/${id}`, {
+              data: {
+                userId: 1,
+              },
             })
-            .catch((error) => {
-              console.log(error);
-            });
-        }}
-      >
-        <FiTrash2
-          style={{ width: "18px", height: "18px", marginRight: "12px" }}
-        />
-        <Text>삭제</Text>
-      </Button>
+              .then((response) => {
+                console.log(response);
+                window.location.reload();
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }}
+        >
+          <FiTrash2
+            style={{ width: "18px", height: "18px", marginRight: "12px" }}
+          />
+          <Text>삭제</Text>
+        </Button>
+      )}
     </ModalArea>
   );
 };
