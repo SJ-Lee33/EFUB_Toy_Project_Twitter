@@ -1,15 +1,26 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "./API";
 import styled from "styled-components";
 import trash from "../assets/trash.png";
 
 const Modal = ({ id }) => {
+  console.log(id);
   return (
     <Delete
       onClick={() => {
-        console.log("삭제", id);
-        axios.delete(`http://127.0.0.1:8000/review/${id}`);
-        window.location.reload();
+        console.log("clicked delete modal!!!");
+        API.delete(`/tweets/${id}`, {
+          data: {
+            userId: 1,
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }}
     >
       <Logo src={trash} />

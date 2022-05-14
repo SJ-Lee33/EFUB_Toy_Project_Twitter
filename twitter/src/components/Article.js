@@ -75,7 +75,7 @@ const Article = ({ article }) => {
               verticalAlign: "middle",
             }}
           >
-            {showModal && <Modal id={article.id} />}
+            {showModal && <Modal id={article.tweetId} />}
 
             <Icon
               src={more}
