@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import axios from "axios";
 import moment from "moment";
 import "moment/locale/ko";
 
 // 컴포넌트
 import ArticleImg from "./ArticleImg";
 import Modal from "./TweetModal";
+
 //로고 이미지
 import profile from "../assets/profile.png";
 import heart from "../assets/heart.svg";
@@ -143,16 +143,16 @@ const Text = styled.p`
 `;
 
 // 이미지 1개
-const ImageSection = styled.div`
-  background-color: gray;
-  border: solid 1px gray;
-  border-radius: 10px;
+// const ImageSection = styled.div`
+//   background-color: gray;
+//   border: solid 1px gray;
+//   border-radius: 10px;
 
-  width: 500px;
-  height: 283px;
+//   width: 500px;
+//   height: 283px;
 
-  margin-bottom: 10px;
-`;
+//   margin-bottom: 10px;
+// `;
 
 const Icon = styled.img`
   height: 18px;

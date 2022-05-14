@@ -5,12 +5,9 @@ import profile from "../assets/profile.png";
 import { FiChevronLeft } from "react-icons/fi";
 import { BsCalendar3 } from "react-icons/bs";
 import Article from "../components/Article";
-import API from "../components/API";
 import RecommendFollowBox from "./RecommendFollowBox";
 import moment from "moment";
 import "moment/locale/ko";
-
-import Spinner from "./Spinner";
 
 export default function Profile({ user, articles }) {
   // const ownArticle = articles

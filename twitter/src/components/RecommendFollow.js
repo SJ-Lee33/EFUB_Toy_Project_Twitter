@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import RecFollowItem from "./RecFollowItem";
 import RecommendFollowBox from "./RecommendFollowBox";
 
 export default function RecommendFollow() {

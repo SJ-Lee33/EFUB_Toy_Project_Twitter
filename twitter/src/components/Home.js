@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
-import Spinner from "./Spinner";
 import Article from "./Article";
 import Input from "./Input";
 
