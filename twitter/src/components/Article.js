@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import axios from "axios";
+import moment from "moment";
+import "moment/locale/ko";
 
 // 컴포넌트
 import ArticleImg from "./ArticleImg";
@@ -24,21 +26,21 @@ function timeForToday(value) {
   if (betweenTime < 1) return "지금";
 
   if (betweenTime < 60) {
-    return `${betweenTime}분`;
+    return `${betweenTime}분 전`;
   }
 
   const betweenTimeHour = Math.floor(betweenTime / 60);
 
   if (betweenTimeHour < 24) {
-    return `${betweenTimeHour}시간`;
+    return `${betweenTimeHour}시간 전`;
   }
 
   const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
   if (betweenTimeDay < 365) {
-    return `${betweenTimeDay}일`;
+    return `${betweenTimeDay}일 전`;
   }
 
-  return `${Math.floor(betweenTimeDay / 365)}년`;
+  return `${Math.floor(betweenTimeDay / 365)}년 전`;
 }
 
 const Article = ({ article }) => {
@@ -49,6 +51,12 @@ const Article = ({ article }) => {
   };
 
   const time = timeForToday(article.createdDate);
+
+  function customDate(date) {
+    var moment = require("moment");
+    const res = moment(date).format("YYYY년 MM월 DD일");
+    return res;
+  }
 
   return (
     <ArticleStyle>
@@ -62,7 +70,7 @@ const Article = ({ article }) => {
         >
           <Text style={{ fontWeight: "bold" }}>{article.nickname}</Text>
           <Text>{article.twitterId}</Text>
-          <Text>· {article.createdDate}</Text>
+          <Text>· {customDate(article.createdDate)} ·</Text>
           <Text>{time}</Text>
 
           <div

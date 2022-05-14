@@ -6,6 +6,8 @@ import { FiChevronLeft } from "react-icons/fi";
 import { BsCalendar3 } from "react-icons/bs";
 import Article from "../components/Article";
 import RecommendFollowBox from "./RecommendFollowBox";
+import moment from "moment";
+import "moment/locale/ko";
 
 export default function Profile({ articles, user }) {
   const ownArticle = articles
@@ -16,6 +18,11 @@ export default function Profile({ articles, user }) {
       return <Article key={article.tweetId} article={article} />;
     });
 
+  function customDate(date) {
+    var moment = require("moment");
+    const res = moment(date).format("YYYY년 MM월");
+    return res;
+  }
   return (
     <ProfTimeLine>
       <Header>
@@ -45,7 +52,7 @@ export default function Profile({ articles, user }) {
 
           <JoinDate>
             <BsCalendar3 style={{ marginRight: "5px" }} />
-            <div>가입일: {user[0].createdDate}</div>
+            <div>가입일: {customDate(user[0].createdDate)}</div>
           </JoinDate>
 
           <FollowInfo>
