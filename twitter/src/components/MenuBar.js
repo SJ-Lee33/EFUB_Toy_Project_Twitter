@@ -16,7 +16,7 @@ import user from "../assets/user.svg";
 import home from "../assets/home.svg";
 import hashtag from "../assets/hashtag.svg";
 
-const MenuBar = () => {
+const MenuBar = ({ user }) => {
   const menu = [
     { img: home, text: "홈" },
     { img: hashtag, text: "탐색하기" },
@@ -66,7 +66,7 @@ const MenuBar = () => {
         }}
       >
         <StyledLink to="/profile">
-          <ProfileMenu />
+          <ProfileMenu user={user} />
         </StyledLink>
       </div>
     </div>
@@ -76,6 +76,7 @@ const MenuBar = () => {
 export default MenuBar;
 
 const StyledLink = styled(Link)`
+  color: black;
   text-decoration: none;
   &:focus,
   &:hover,
