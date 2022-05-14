@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 import Article from "./Article";
 import Input from "./Input";
 
-const Home = ({ articles, loading }) => {
+const Home = ({ articles }) => {
   return (
     <TimeLine>
       <Header>
@@ -14,8 +14,6 @@ const Home = ({ articles, loading }) => {
       </Header>
 
       <Input />
-
-      {loading ? <Spinner /> : ""}
 
       {articles
         .slice(0)

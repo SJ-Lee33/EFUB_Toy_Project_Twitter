@@ -1,28 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import headerimg from "../assets/ewha.png";
 import profile from "../assets/profile.png";
 import { FiChevronLeft } from "react-icons/fi";
 import { BsCalendar3 } from "react-icons/bs";
 import Article from "../components/Article";
+import API from "../components/API";
 import RecommendFollowBox from "./RecommendFollowBox";
 import moment from "moment";
 import "moment/locale/ko";
 
-export default function Profile({ articles, user }) {
-  const ownArticle = articles
-    .slice(0)
-    .reverse()
-    .filter((article) => article.userId == 1)
-    .map((article) => {
-      return <Article key={article.tweetId} article={article} />;
-    });
+import Spinner from "./Spinner";
+
+export default function Profile({ user, articles }) {
+  // const ownArticle = articles
+  //   .slice(0)
+  //   .reverse()
+  //   .filter((article) => article.userId == 1)
+  //   .map((article) => {
+  //     return <Article key={article.tweetId} article={article} />;
+  //   });
 
   function customDate(date) {
     var moment = require("moment");
     const res = moment(date).format("YYYY년 MM월");
     return res;
   }
+
   return (
     <ProfTimeLine>
       <Header>
@@ -42,17 +46,17 @@ export default function Profile({ articles, user }) {
 
         <div style={{ margin: "10px" }}>
           <div style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
-            {user[0].nickname}
+            {user.nickname}
           </div>
           <div style={{ fontSize: "0.8rem", color: "gray" }}>
-            {user[0].twitterId}
+            {user.twitterId}
           </div>
 
-          <Introduce>{user[0].bio}</Introduce>
+          <Introduce>{user.bio}</Introduce>
 
           <JoinDate>
             <BsCalendar3 style={{ marginRight: "5px" }} />
-            <div>가입일: {customDate(user[0].createdDate)}</div>
+            <div>가입일: {customDate(user.createdDate)}</div>
           </JoinDate>
 
           <FollowInfo>
@@ -73,7 +77,14 @@ export default function Profile({ articles, user }) {
         <RecommendFollowBox />
       </RecommendFollowArea>
 
-      {ownArticle}
+      {/* {ownArticle} */}
+
+      {articles
+        .slice(0)
+        .reverse()
+        .map((article) => (
+          <Article key={article.tweetId} article={article} />
+        ))}
     </ProfTimeLine>
   );
 }
@@ -92,7 +103,7 @@ const Header = styled.div`
   background-color: rgba(255, 255, 255, 0.9);
 `;
 
-const HeaderText = styled.p`
+const HeaderText = styled.div`
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   color: black;

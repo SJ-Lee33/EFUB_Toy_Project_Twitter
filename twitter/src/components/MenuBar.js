@@ -64,11 +64,13 @@ const MenuBar = ({ user }) => {
           verticalAlign: "middle",
           marginTop: "auto",
         }}
-      >
+      ></div>
+
+      {user && user[0] && (
         <StyledLink to="/profile">
-          <ProfileMenu user={user} />
+          <ProfileMenu user={user[0]} />
         </StyledLink>
-      </div>
+      )}
     </div>
   );
 };

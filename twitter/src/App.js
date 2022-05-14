@@ -47,10 +47,7 @@ export default function App() {
             <HomePage articles={articles} loading={loading} user={user} />
           }
         />
-        <Route
-          path="profile/"
-          element={<ProfilePage articles={articles} user={user} />}
-        />
+        <Route path="profile/" element={<ProfilePage user={user} />} />
       </Routes>
     </BrowserRouter>
   );

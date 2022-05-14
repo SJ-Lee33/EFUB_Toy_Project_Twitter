@@ -8,8 +8,8 @@ export default function ProfileMenu({ user }) {
     <ProfileMenuBox>
       <ProfileImg src={profile} />
       <div>
-        <Text style={{ fontWeight: "bold" }}>{user[0].nickname}</Text>
-        <Text>{user[0].twitterId}</Text>
+        <Text style={{ fontWeight: "bold" }}>{user.nickname}</Text>
+        <Text>{user.twitterId}</Text>
       </div>
 
       <div
