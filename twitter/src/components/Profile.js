@@ -7,7 +7,7 @@ import { BsCalendar3 } from "react-icons/bs";
 import Article from "../components/Article";
 import RecommendFollowBox from "./RecommendFollowBox";
 
-export default function Profile({ articles }) {
+export default function Profile({ articles, user }) {
   const ownArticle = articles
     .slice(0)
     .reverse()
@@ -34,14 +34,18 @@ export default function Profile({ articles }) {
         </div>
 
         <div style={{ margin: "10px" }}>
-          <div style={{ fontSize: "1.2rem", fontWeight: "bold" }}>퍼비</div>
-          <div style={{ fontSize: "0.8rem", color: "gray" }}>@efub</div>
+          <div style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+            {user[0].nickname}
+          </div>
+          <div style={{ fontSize: "0.8rem", color: "gray" }}>
+            {user[0].twitterId}
+          </div>
 
-          <Introduce>안녕 퍼비들</Introduce>
+          <Introduce>{user[0].bio}</Introduce>
 
           <JoinDate>
             <BsCalendar3 style={{ marginRight: "5px" }} />
-            <div>가입일: 2022년 5월</div>
+            <div>가입일: {user[0].createdDate}</div>
           </JoinDate>
 
           <FollowInfo>

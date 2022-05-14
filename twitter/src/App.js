@@ -9,8 +9,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
   const [articles, setArticles] = useState([]);
-
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState([]);
+
+  const getUser = async () => {
+    const response = await API.get("/users/1")
+      .then((response) => {
+        setUser([response.data]);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   const getTweets = async () => {
     const response = await API.get("/tweets")
@@ -25,6 +35,7 @@ export default function App() {
 
   useEffect(() => {
     getTweets();
+    getUser();
   }, []);
 
   return (
@@ -32,9 +43,14 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage articles={articles} loading={loading} />}
+          element={
+            <HomePage articles={articles} loading={loading} user={user} />
+          }
         />
-        <Route path="profile/" element={<ProfilePage articles={articles} />} />
+        <Route
+          path="profile/"
+          element={<ProfilePage articles={articles} user={user} />}
+        />
       </Routes>
     </BrowserRouter>
   );

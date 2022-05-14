@@ -4,12 +4,12 @@ import MenuBar from "../components/MenuBar";
 import Profile from "../components/Profile";
 import RecommendBar from "../components/RecommendBarP";
 
-export default function ProfilePage({ articles }) {
+export default function ProfilePage({ articles, user }) {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <MenuBar />
 
-      <Profile articles={articles} />
+      <Profile articles={articles} user={user} />
 
       <RecommendBar />
     </div>
