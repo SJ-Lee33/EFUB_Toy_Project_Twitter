@@ -3,13 +3,13 @@ import styled from "styled-components";
 import profile from "../assets/profile.png";
 import more from "../assets/more.svg";
 
-const ProfileMenu = () => {
+export default function ProfileMenu({ user }) {
   return (
     <ProfileMenuBox>
       <ProfileImg src={profile} />
       <div>
-        <Text style={{ fontWeight: "bold" }}>퍼비</Text>
-        <Text>@efub</Text>
+        <Text style={{ fontWeight: "bold" }}>{user.nickname}</Text>
+        <Text>{user.twitterId}</Text>
       </div>
 
       <div
@@ -25,19 +25,17 @@ const ProfileMenu = () => {
         <img
           src={more}
           style={{
-            height: "18px",
-            width: "18px",
+            height: "15px",
+            width: "15px",
           }}
         />
       </div>
     </ProfileMenuBox>
   );
-};
-export default ProfileMenu;
-
+}
 const ProfileMenuBox = styled.div`
   height: 64px;
-  width: 251px;
+  width: auto;
   box-sizing: border-box;
 
   display: flex;
@@ -46,6 +44,7 @@ const ProfileMenuBox = styled.div`
   padding: 12px;
 
   margin-top: 50px;
+  margin-right: 20px;
 
   transition: all 0.15s;
   &:hover {

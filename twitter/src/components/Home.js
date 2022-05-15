@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
-import Spinner from "./Spinner";
 import Article from "./Article";
 import Input from "./Input";
 
-const Home = ({ articles, loading }) => {
+const Home = ({ articles }) => {
   return (
     <TimeLine>
       <Header>
@@ -15,13 +13,11 @@ const Home = ({ articles, loading }) => {
 
       <Input />
 
-      {loading ? <Spinner /> : ""}
-
       {articles
         .slice(0)
         .reverse()
         .map((article) => (
-          <Article article={article} />
+          <Article key={article.tweetId} article={article} />
         ))}
     </TimeLine>
   );

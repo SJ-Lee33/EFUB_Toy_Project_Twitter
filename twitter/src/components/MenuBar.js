@@ -12,11 +12,11 @@ import dm from "../assets/dm.svg";
 import bookmark from "../assets/bookmark.svg";
 import more from "../assets/more.svg";
 import list from "../assets/list.svg";
-import user from "../assets/user.svg";
+import userImg from "../assets/user.svg";
 import home from "../assets/home.svg";
 import hashtag from "../assets/hashtag.svg";
 
-const MenuBar = () => {
+const MenuBar = ({ user }) => {
   const menu = [
     { img: home, text: "홈" },
     { img: hashtag, text: "탐색하기" },
@@ -24,7 +24,7 @@ const MenuBar = () => {
     { img: dm, text: "쪽지" },
     { img: bookmark, text: "북마크" },
     { img: list, text: "리스트" },
-    { img: user, text: "프로필" },
+    { img: userImg, text: "프로필" },
     { img: more, text: "더보기" },
   ];
 
@@ -56,19 +56,11 @@ const MenuBar = () => {
         <Button size="large" />
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          verticalAlign: "middle",
-          marginTop: "auto",
-        }}
-      >
+      {user && user[0] && (
         <StyledLink to="/profile">
-          <ProfileMenu />
+          <ProfileMenu user={user[0]} />
         </StyledLink>
-      </div>
+      )}
     </div>
   );
 };
@@ -76,6 +68,7 @@ const MenuBar = () => {
 export default MenuBar;
 
 const StyledLink = styled(Link)`
+  color: black;
   text-decoration: none;
   &:focus,
   &:hover,

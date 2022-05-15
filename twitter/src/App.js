@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
+import API from "./components/API";
 
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
@@ -9,31 +9,45 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
   const [articles, setArticles] = useState([]);
-
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("https://twitter-toy.herokuapp.com/tweets")
+  const getUser = async () => {
+    const response = await API.get("/users/1")
+      .then((response) => {
+        setUser([response.data]);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const getTweets = async () => {
+    const response = await API.get("/tweets")
       .then((response) => {
         setArticles([...response.data]);
         setLoading(false);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.log(error.message);
       });
-  }, []);
+  };
 
-  console.log(articles);
+  useEffect(() => {
+    getTweets();
+    getUser();
+  }, []);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<HomePage articles={articles} loading={loading} />}
+          element={
+            <HomePage articles={articles} loading={loading} user={user} />
+          }
         />
-        <Route path="profile/" element={<ProfilePage />} />
+        <Route path="profile/" element={<ProfilePage user={user} />} />
       </Routes>
     </BrowserRouter>
   );

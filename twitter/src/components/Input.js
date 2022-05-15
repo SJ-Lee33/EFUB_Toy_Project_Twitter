@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 // 컴포넌트
 import Button from "./Button";
+import API from "./API";
+
 //로고 png
 import profile from "../assets/profile.png";
 import image from "../assets/image.png";
@@ -19,11 +20,10 @@ const Input = () => {
 
   // 게시글 작성
   const onSubmit = (e) => {
-    axios
-      .post("https://twitter-toy.herokuapp.com/tweets", {
-        userId: 1,
-        content: text,
-      })
+    API.post("/tweets", {
+      userId: 1,
+      content: text,
+    })
       .then(function (response) {
         console.log(response);
       })
