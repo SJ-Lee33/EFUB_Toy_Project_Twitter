@@ -8,6 +8,7 @@ import Article from "../components/Article";
 import RecommendFollowBox from "./RecommendFollowBox";
 import moment from "moment";
 import "moment/locale/ko";
+import API from "./API";
 
 export default function Profile({ user, articles }) {
   // const ownArticle = articles
@@ -18,11 +19,43 @@ export default function Profile({ user, articles }) {
   //     return <Article key={article.tweetId} article={article} />;
   //   });
 
+  const [follower, setFollower] = useState();
+  const [followee, setFollowee] = useState();
+
   function customDate(date) {
     var moment = require("moment");
     const res = moment(date).format("YYYY년 MM월");
     return res;
   }
+
+  const getFollower = () => {
+    const response = API.get("/users/1/follower")
+      .then((response) => {
+        let loaded = response.data.length;
+        setFollower(loaded);
+      })
+      .catch((error) => {
+        console.log("에러", error.message);
+      });
+  };
+
+  const getFollowee = () => {
+    const response = API.get("/users/1/followee")
+      .then((response) => {
+        let loaded = response.data.length;
+        setFollowee(loaded);
+      })
+      .catch((error) => {
+        console.log("에러", error.message);
+      });
+  };
+
+  useEffect(() => {
+    getFollower();
+    getFollowee();
+  }, []);
+
+  const [edit, setEdit] = useState(false);
 
   return (
     <ProfTimeLine>
@@ -30,7 +63,9 @@ export default function Profile({ user, articles }) {
         <FiChevronLeft style={{ margin: "0 10px" }} />
         <HeaderText>
           <div style={{ fontSize: "1rem", fontWeight: "bold" }}>퍼비</div>
-          <div style={{ fontSize: "0.2rem", fontWeight: "400" }}>2트윗</div>
+          <div style={{ fontSize: "0.2rem", fontWeight: "400" }}>
+            {articles.length}트윗
+          </div>
         </HeaderText>
       </Header>
       <ProfileArea>
@@ -38,7 +73,14 @@ export default function Profile({ user, articles }) {
 
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <ProfileImg src={profile} />
-          <ModifyProfile>프로필 수정</ModifyProfile>
+
+          <ModifyProfile
+            onClick={() => {
+              setEdit(!edit);
+            }}
+          >
+            프로필 수정
+          </ModifyProfile>
         </div>
 
         <div style={{ margin: "10px" }}>
@@ -49,7 +91,11 @@ export default function Profile({ user, articles }) {
             {user.twitterId}
           </div>
 
-          <Introduce>{user.bio}</Introduce>
+          {edit ? (
+            <ProfileInput></ProfileInput>
+          ) : (
+            <Introduce>{user.bio}</Introduce>
+          )}
 
           <JoinDate>
             <BsCalendar3 style={{ marginRight: "5px" }} />
@@ -57,9 +103,9 @@ export default function Profile({ user, articles }) {
           </JoinDate>
 
           <FollowInfo>
-            <p>1</p>
+            <p>{follower}</p>
             <TextG>&nbsp;팔로우 중</TextG>
-            <p style={{ marginLeft: "10px" }}>0</p>
+            <p style={{ marginLeft: "10px" }}>{followee}</p>
             <TextG>&nbsp;팔로워</TextG>
           </FollowInfo>
         </div>
@@ -86,6 +132,31 @@ export default function Profile({ user, articles }) {
   );
 }
 
+function ProfileInput() {
+  const [bio, setBio] = useState("");
+
+  const editBio = () => {
+    const response = API.patch("/users/1", {
+      bio: bio,
+    }).then(window.location.reload());
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    editBio();
+    setBio("");
+  };
+  return (
+    <form onSubmit={onSubmit}>
+      <EditProfileInput
+        placeholder="소개글을 수정해주세요"
+        value={bio}
+        onChange={(e) => setBio(e.target.value)}
+      ></EditProfileInput>
+      <button type="submit" hidden />
+    </form>
+  );
+}
 const Header = styled.div`
   display: flex;
   flex-direction: row;
@@ -141,8 +212,18 @@ const ModifyProfile = styled.button`
   border-radius: 30px;
   background-color: transparent;
   font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #e7e7e8;
+  }
 `;
 
+const EditProfileInput = styled.input`
+  background-color: transparent;
+  border: solid 1px gray;
+  margin: 10px 0;
+`;
 const Introduce = styled.div`
   font-size: 0.8rem;
   margin: 10px 0;
