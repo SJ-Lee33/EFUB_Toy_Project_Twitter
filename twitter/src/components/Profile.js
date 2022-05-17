@@ -11,14 +11,6 @@ import "moment/locale/ko";
 import API from "./API";
 
 export default function Profile({ user, articles }) {
-  // const ownArticle = articles
-  //   .slice(0)
-  //   .reverse()
-  //   .filter((article) => article.userId == 1)
-  //   .map((article) => {
-  //     return <Article key={article.tweetId} article={article} />;
-  //   });
-
   const [follower, setFollower] = useState();
   const [followee, setFollowee] = useState();
 

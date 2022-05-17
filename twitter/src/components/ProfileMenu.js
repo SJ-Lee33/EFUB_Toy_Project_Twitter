@@ -9,7 +9,7 @@ export default function ProfileMenu({ user }) {
       <ProfileImg src={profile} />
       <div>
         <Text style={{ fontWeight: "bold" }}>{user.nickname}</Text>
-        <Text>{user.twitterId}</Text>
+        <Text>{user.twitterId}얖</Text>
       </div>
 
       <div
